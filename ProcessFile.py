@@ -239,7 +239,7 @@ def main():
 
 	global file_array
 
-	process_file('circuit1.lola')
+	process_file('FullAdder.lola')
 	file_array = filter(lambda x : x != '\n', file_array)
 	enviroment = set_env()
 	simulate(enviroment)
