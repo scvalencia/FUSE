@@ -1,0 +1,82 @@
+PROGRAM: CIRCUIT1
+
+INPUT:
+	A, B, C, D
+
+GATES:
+	G1 : NOT
+	G2 : NOT
+	G3 : OR
+	G4 : AND
+	G5 : AND
+
+CIRCUIT:
+	SET A G1
+	SET B G2
+	SET C G3
+	SET D G3
+
+	CON G2 G4
+	CON G3 G4
+	CON G1 G5
+	CON G4 G5
+
+OUTPUT:
+	G5
+
+==================================================
+PROGRAM: CIRCUIT1
+
+INPUT:
+	A, B, C, D
+
+GATES:
+	G1, G2 : NOT
+	G4, G5 : AND
+	G3 : OR5
+
+CIRCUIT:
+	SET A G1
+	SET B G2
+	SET C G3
+	SET D G3
+
+	CON G2 G4
+	CON G3 G4
+	CON G1 G5
+	CON G4 G5
+
+
+OUTPUT:
+	G5
+
+==================================================
+PROGRAM: CIRCUIT1
+
+INPUT:
+	A, B, C, D
+
+DATA:
+	SET 1 A
+	SET 0 B
+	SET 1 C
+	SET 1 D
+
+GATES:
+	G1, G2 : NOT
+	G4, G5 : AND
+	G3 : OR5
+
+CIRCUIT:
+	SET A G1
+	SET B G2
+	SET C G3
+	SET D G3
+
+	CON G2 G4
+	CON G3 G4
+	CON G1 G5
+	CON G4 G5
+
+OUTPUT:
+	G5
