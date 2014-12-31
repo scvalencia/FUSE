@@ -239,7 +239,9 @@ def main():
 
 	global file_array
 
-	process_file('Latch.lola')
+	filename = sys.argv[1]
+
+	process_file(filename)
 	file_array = filter(lambda x : x != '\n', file_array)
 	enviroment = set_env()
 	simulate(enviroment)
