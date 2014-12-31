@@ -2,3 +2,4 @@ lola/bin
 lola/include
 lola/lib
 *.pyc
+venv
