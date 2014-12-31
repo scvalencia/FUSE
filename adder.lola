@@ -1,0 +1,18 @@
+PROGRAM:
+	HALFADDER
+
+INPUT:
+	A, B
+
+GATES:
+	S : XOR
+	C : AND
+
+CIRCUIT:
+	SET A S
+	SET B S
+	SET A C
+	SET B C
+
+OUTPUT:
+	S, C
