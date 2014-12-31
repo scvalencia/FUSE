@@ -1,4 +1,3 @@
-GUI
 Parsing of lola files
 File structure of the project
 Circuit analysis
@@ -7,3 +6,4 @@ Uppcase handling
 Syntax errors with lines
 Syntax sublime
 Module system
+Error handling
