@@ -1,0 +1,25 @@
+PROGRAM:
+	FULLADDER
+
+INPUT:
+	Ci, A, B
+
+GATES:
+	G1, S : XOR
+	G2, G3 : AND
+	Co : OR
+
+CIRCUIT:
+	SET A G1
+	SET B G1
+	SET A G2
+	SET B G2
+	SET Ci S
+	SET Ci G3
+	CON G1 S
+	CON G1 G3
+	CON G3 Co
+	CON G2 Co
+
+OUTPUT:
+	Co, S
