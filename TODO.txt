@@ -1,0 +1,8 @@
+GUI
+Parsing of lola files
+File structure of the project
+Circuit analysis
+Comments in lola files
+Mayus handling
+Syntax errors with lines
+Module system
