@@ -5,4 +5,5 @@ Circuit analysis
 Comments in lola files
 Uppcase handling
 Syntax errors with lines
+Syntax sublime
 Module system
