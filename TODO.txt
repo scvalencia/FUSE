@@ -1,3 +1,4 @@
+Docs
 Parsing of lola files
 File structure of the project
 Circuit analysis
@@ -7,3 +8,19 @@ Syntax errors with lines
 Syntax sublime
 Module system
 Error handling
+Literate programming like Latex in descriptyion of modules
+New file structure:
+	
+	MODULE:
+		<name>
+	DESCRIPTION:
+		<TeX string>
+	PIK:
+		<TeX string>
+	INPUT:
+		<listOfVariables>
+	MODULES:
+		used modules or gates
+	CIRCUIT:
+		description
+	OUTPUT
