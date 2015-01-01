@@ -55,8 +55,3 @@ class ModuleConnector(object):
 
 		self.fmodule = fmodule
 		self.tmodule = tmodule
-
-		self.f
-
-
-
