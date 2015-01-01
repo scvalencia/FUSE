@@ -1,0 +1,26 @@
+PROGRAM:
+	MAJ
+
+DESCRIPTION:
+	Gives the most frequent bit in the input.
+	e.g. 000 -> 0, 111 -> 1, 010 -> 0
+
+INPUT:
+	X, Y, Z
+
+GATES:
+	N1, N2, N3 : NOT
+	A1, A2, A3, A4 : AND
+	A5, A6, A7, A8 : AND
+	O1, O2, OUT : OR
+
+CIRCUIT:
+	SET X N1
+	SET Y A1
+	CON N1 A1
+	CON A1 A2
+	CON A2 O1
+
+OUTPUT:
+	OUT
+
