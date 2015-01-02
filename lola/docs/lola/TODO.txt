@@ -24,3 +24,4 @@ New file structure:
 	CIRCUIT:
 		description
 	OUTPUT
+GATES FOR SEVERAL INPUTS
