@@ -1,30 +1,43 @@
-class module(object):
+class Module(object):
 
 	def __init__(self, filename):
 
-		self.label = ''
-		self.ins = []
-		self.outs = []
-		self.modules = []
 		self.filename = filename
+		self.label = ''
+		self.description = ''
 		self.image = ''
+		self.ins = []
+		self.modules = []
+		self.outs = []		
 		self.done = False
+
+	def get_filename(self):
+
+		return filename
 
 	def get_label(self):
 
 		return self.label
 
+	def get_description(self):
+
+		return self.description
+
+	def get_image(self):
+
+		return self.image
+
 	def get_inputs(self):
 
 		return self.ins
 
+	def get_modules(self):
+
+		return self.modules
+
 	def get_outputs(self):
 
 		return self.outs
-
-	def get_filename(self):
-
-		return filename
 
 	def set_input(self, value):
 
