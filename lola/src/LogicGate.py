@@ -111,6 +111,31 @@ class UnaryGate(LogicGate):
 	def __str__(self):
 		return '(' + str(self.pin) + ')'
 
+class NAryGate(LogicGate):
+
+	def __init__(self, name, n):
+
+		LogicGate.__init__(self, name)
+
+		self.size = n
+		self.inputs = [_ for _ in range(self.size)]
+
+	def set_pin(self, index, value):
+
+		pass
+
+	def is_complete(self):
+
+		pass
+
+	def clean(self):
+
+		pass
+
+	def __str__(self):
+
+		pass
+
 class Connector(object):
 
 	def __init__(self, fgate, tgate):
