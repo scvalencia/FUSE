@@ -113,17 +113,23 @@ class UnaryGate(LogicGate):
 
 class NAryGate(LogicGate):
 
-	def __init__(self, name, n):
+	def __init__(self, n, name):
 
 		LogicGate.__init__(self, name)
 
 		self.size = n
+		self.used_index = 0
 		self.inputs = [None for _ in range(self.size)]
 
-	def set_pin(self, index, value):
+	def set_pin(self, value):
+
+		self.set_pin_at(self.used_index, value)
+		self.used_index += 1
+
+	def set_pin_at(self, index, value):
 
 		if index in range(0, self.size):
-			if self.inputs[index] != None:
+			if self.inputs[index] == None:
 
 				if value not in [0, 1]:
 					raise ValueError("Pin value must be 0, or 1")
@@ -142,7 +148,7 @@ class NAryGate(LogicGate):
 		ans = True
 
 		for itm in self.inputs:
-			if not itm:
+			if itm == None:
 				ans = False
 				break
 
@@ -150,6 +156,7 @@ class NAryGate(LogicGate):
 
 	def clean(self):
 
+		self.used_index = 0
 		self.inputs = [None for _ in range(self.size)] 
 
 	def __str__(self):
@@ -268,3 +275,91 @@ class NotGate(UnaryGate):
 
 		else:
 			self.output = 1
+
+class NAndGate(NAryGate):
+	
+	def __init__(self, n, name = "N_AND" + str(datetime.datetime.now())):
+
+		NAryGate.__init__(self, n, name)
+
+	def perform_logic(self):
+
+		ans = 1
+
+		for itm in self.inputs:
+
+			new_object = AndGate()
+			new_object.set_pin(itm)
+			new_object.set_pin(ans)
+
+			new_object.perform_logic()
+
+			ans = new_object.output
+
+		self.output = ans
+
+class NOrGate(NAryGate):
+	
+	def __init__(self, n, name = "N_OR" + str(datetime.datetime.now())):
+
+		NAryGate.__init__(self, n, name)
+
+	def perform_logic(self):
+
+		ans = 0
+
+		for itm in self.inputs:
+
+			new_object = OrGate()
+			new_object.set_pin(itm)
+			new_object.set_pin(ans)
+
+			new_object.perform_logic()
+
+			ans = new_object.output
+
+		self.output = ans
+
+class NNandGate(NAryGate):
+	
+	def __init__(self, n, name = "N_NAND" + str(datetime.datetime.now())):
+
+		NAryGate.__init__(self, n, name)
+
+	def perform_logic(self):
+
+		ans = 1
+
+		for itm in self.inputs:
+
+			new_object = AndGate()
+			new_object.set_pin(itm)
+			new_object.set_pin(ans)
+
+			new_object.perform_logic()
+
+			ans = new_object.output
+
+		self.output = 0 if ans == 1 else 1
+
+class NNorGate(NAryGate):
+	
+	def __init__(self, n, name = "N_NAND" + str(datetime.datetime.now())):
+
+		NAryGate.__init__(self, n, name)
+
+	def perform_logic(self):
+
+		ans = 0
+
+		for itm in self.inputs:
+
+			new_object = OrGate()
+			new_object.set_pin(itm)
+			new_object.set_pin(ans)
+
+			new_object.perform_logic()
+
+			ans = new_object.output
+
+		self.output = 0 if ans == 1 else 1

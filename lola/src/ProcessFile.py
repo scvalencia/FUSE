@@ -1,6 +1,6 @@
 import sys
 import tabulate
-from LogicGate import *
+from logicgate import *
 
 SECTIONS = ['PROGRAM', 'INPUT', 'GATES', 'CIRCUIT', 'OUTPUT']
 program = {}
@@ -107,6 +107,18 @@ def set_env():
 				env[name] = XnorGate()			
 			elif kind == 'NOT':
 				env[name] = NotGate()
+
+			if kind[0].isdigit():
+				number = int(kind[0])
+				gate = kind[1:]
+				if gate == 'AND':
+					env[name] = NAndGate(number)
+				elif gate == 'OR':
+					env[name] = NOrGate(number)
+				elif gate == 'NAND':
+					env[name] = NNandGate(number)
+				elif gate == 'NOR':
+					env[name] = NNorGate(number)
 		else:
 			print 'Repeated gate definition: ' + name
 
@@ -177,12 +189,10 @@ def simulate(env):
 
 	i = 0
 	while i <= bits:
-		itm = []
-		
+		itm = []	
 
 		rep = get_binary_string(i, length)
 		set_values(rep)
-
 
 		for r in rep:
 			itm.append(r)
@@ -214,7 +224,7 @@ def simulate(env):
 			if flag:
 				for o in outputs:
 					env[o].perform_logic()
-					itm.append(env[o].output)				
+					itm.append(env[o].output)		
 
 			j += 1
 		

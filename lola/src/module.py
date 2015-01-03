@@ -13,6 +13,7 @@ class Module(object):
 		self.outs = []	
 		self.file_array = []	
 		self.done = False
+		self.arity = (len(self.ins), len(self.outs))
 
 	def get_filename(self):
 
@@ -118,9 +119,6 @@ class Module(object):
 				self.modules.append((itm, kind))
 
 			i += 1
-
-
-
 
 class ModuleConnector(object):
 
