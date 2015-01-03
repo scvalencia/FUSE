@@ -118,23 +118,45 @@ class NAryGate(LogicGate):
 		LogicGate.__init__(self, name)
 
 		self.size = n
-		self.inputs = [_ for _ in range(self.size)]
+		self.inputs = [None for _ in range(self.size)]
 
 	def set_pin(self, index, value):
 
-		pass
+		if index in range(0, self.size):
+			if self.inputs[index] != None:
+
+				if value not in [0, 1]:
+					raise ValueError("Pin value must be 0, or 1")
+
+				else:
+					self.inputs[index] = value
+
+			else:
+				raise Exception("Index used")
+
+		else:
+			raise IndexError("Index out of range")
 
 	def is_complete(self):
 
-		pass
+		ans = True
+
+		for itm in self.inputs:
+			if not itm:
+				ans = False
+				break
+
+		return ans
 
 	def clean(self):
 
-		pass
+		self.inputs = [None for _ in range(self.size)] 
 
 	def __str__(self):
 
-		pass
+		body = ', '.join(map(str, self.inputs))
+		ans = '(' + body + ')'
+		return ans
 
 class Connector(object):
 
