@@ -203,6 +203,7 @@ def simulate(env):
 
 			flag = True
 			line = file_array[j].strip().split()
+			line = line[0:3]
 			
 			if line[0] == 'SET':
 				signal = line[1]
