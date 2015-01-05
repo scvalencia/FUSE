@@ -8,7 +8,7 @@ Syntax errors with lines
 Syntax sublime
 Module system
 Error handling
-Literate programming like Latex in descriptyion of modules
+Literate programming like Latex in descriptyion of modules (latex, html)
 New file structure:
 	
 	MODULE:
@@ -25,3 +25,13 @@ New file structure:
 		description
 	OUTPUT
 GATES FOR SEVERAL INPUTS
+Sequential logic support
+
+TeX-Python
+- https://github.com/JelteF/PyLaTeX
+- http://www.pytex.org/
+- http://pyx.sourceforge.net/
+- https://github.com/gpoore/pythontex
+
+Drawing:
+- https://www.sharelatex.com/blog/2013/09/02/tikz-series-pt4.html
